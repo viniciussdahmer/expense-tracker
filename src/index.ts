@@ -9,11 +9,7 @@ app.use(express.json());
 app.use('/api/expenses', expensesRouter);
 
 mongoose
-  .connect('mongodb://localhost:27017/expense-tracker-db', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  } as ConnectOptions)
+  .connect('mongodb://localhost:27017/expense-tracker-db')
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
